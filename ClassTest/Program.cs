@@ -20,7 +20,8 @@ namespace ClassTest
 
             Console.WriteLine("rectangle length:{0}, widhth:{1}, Area:{2}", rect2.length, rect2.width, rect2.Area());
             */
-
+            Console.WriteLine("Class Animal");
+            Console.WriteLine("===========================");
             Animal fox = new Animal("fox", "Paaww");
             fox.MakeSound();           
 
@@ -33,7 +34,13 @@ namespace ClassTest
             Animal hwak = new Animal("hwak", "hwakhwak");
             hwak.MakeSound();
 
-            Animal.GetNumofAnimals();
+            Console.WriteLine ("NumofAnimals : {0}", Animal.GetNumofAnimals());
+            Console.WriteLine(String.Empty);
+            Console.WriteLine("ShpaeMath");
+            Console.WriteLine("===========================");
+            Console.WriteLine("Area of Rectangle = {0}", ShapeMath.GetArea("rectangle", 5, 6));
+            Console.WriteLine("Area of Triangle = {0}", ShapeMath.GetArea("triangle", 5, 6));
+            Console.WriteLine("Area of Circle = {0}", ShapeMath.GetArea("circle", 5, 6));
             Console.ReadLine();
         }
 
