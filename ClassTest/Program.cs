@@ -22,7 +22,7 @@ namespace ClassTest
             */
 
             Animal fox = new Animal("fox", "Paaww");
-            fox.MakeSound();
+            fox.MakeSound();           
 
             Animal wolf = new Animal("wolf", "Auuu");
             wolf.MakeSound();
@@ -33,6 +33,7 @@ namespace ClassTest
             Animal hwak = new Animal("hwak", "hwakhwak");
             hwak.MakeSound();
 
+            Animal.GetNumofAnimals();
             Console.ReadLine();
         }
 
@@ -50,7 +51,6 @@ namespace ClassTest
             public double Area()
             {
                 return length * width;
-
             }
         }
     }
