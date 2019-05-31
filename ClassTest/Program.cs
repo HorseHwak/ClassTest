@@ -35,6 +35,34 @@ namespace ClassTest
                 animal.MakeSound();
             }
 
+            Dictionary<enAnimalType, Animal> dicAnimals = new Dictionary<enAnimalType, Animal>();
+            dicAnimals.Add(enAnimalType.fox, new Animal("red", "Paaww"));
+            dicAnimals.Add(enAnimalType.wolf, new Animal("blue", "Auuu"));
+            dicAnimals.Add(enAnimalType.horse, new Animal("pink", "iehing"));
+            dicAnimals.Add(enAnimalType.hwak, new Animal("green", "hwakhwak"));
+
+            foreach(KeyValuePair<enAnimalType, Animal> item in dicAnimals)
+            {
+                var key = item.Key;
+                var value = item.Value;
+
+                value.MakeSound();
+            }
+
+            foreach(var item in dicAnimals.Values)
+            {
+                item.MakeSound();
+            }
+
+            Animal outAnimal;
+            if (dicAnimals.TryGetValue(enAnimalType.tiger, out outAnimal))
+            {
+                outAnimal.MakeSound();
+            }
+            else
+            {
+                Console.WriteLine("[E] tiger not found");
+            }
 
             Console.WriteLine ("NumofAnimals : {0}", Animal.GetNumofAnimals());
             Console.WriteLine(String.Empty);
