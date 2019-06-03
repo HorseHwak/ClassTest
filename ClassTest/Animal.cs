@@ -12,12 +12,13 @@ namespace ClassTest
         wolf,
         horse,
         hwak,
-        tiger
+        tiger,
+        pig
     }
     class Animal
     {
         static int numOfAnimals = 0;
-        
+
         private string name;
         private string sound;
 
@@ -42,5 +43,11 @@ namespace ClassTest
         {
             return numOfAnimals;
         }
+
+        public string GetName()
+        {
+            return name;
+        }
+        
     }
 }

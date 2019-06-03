@@ -29,17 +29,58 @@ namespace ClassTest
             animals.Add(new Animal("wolf", "Auuu"));
             animals.Add(new Animal("horse", "iehing"));
             animals.Add(new Animal("hwak", "hwakhwak"));
+            animals.Add(new Animal("pig", "GgulGgul"));
 
-            foreach(var animal in animals)
+            /* var findanimals = animals[2];
+
+             findanimals.MakeSound();*/
+
+            bool bFound = false;
+
+            foreach (var animal in animals)
             {
-                animal.MakeSound();
+                var animalName = animal.GetName();
+                if (animalName == "pig")
+                {
+                    bFound = true;
+                    break;
+                }
             }
+            if (bFound)
+            {
+                Console.WriteLine("Find pig");
+            }
+            else
+            {
+                Console.WriteLine("Not Found pig");
+            }
+
+            Animal findPig = animals.Find(item => item.GetName().Equals("pig"));
+            if (findPig != null)
+            {
+                Console.WriteLine("Found my pig again");
+                Console.Write(">> ");
+                findPig.MakeSound();
+            }
+            else
+                Console.WriteLine("Not Found Pig");
+
+            Animal myhorse = animals.Find(item => item.GetName().Equals("horse"));
+            if (myhorse != null)
+            {
+                Console.WriteLine("Found my horse again");
+                Console.Write(">> ");
+                myhorse.MakeSound();
+            }
+
 
             Dictionary<enAnimalType, Animal> dicAnimals = new Dictionary<enAnimalType, Animal>();
             dicAnimals.Add(enAnimalType.fox, new Animal("red", "Paaww"));
             dicAnimals.Add(enAnimalType.wolf, new Animal("blue", "Auuu"));
             dicAnimals.Add(enAnimalType.horse, new Animal("pink", "iehing"));
             dicAnimals.Add(enAnimalType.hwak, new Animal("green", "hwakhwak"));
+
+            var someAnimal = dicAnimals[enAnimalType.horse];
 
             foreach(KeyValuePair<enAnimalType, Animal> item in dicAnimals)
             {
