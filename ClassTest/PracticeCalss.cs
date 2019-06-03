@@ -175,24 +175,25 @@ namespace ClassTest
 
             //example 5
             StringBuilder sb5 = new StringBuilder("Knsan is University");
-            sb5.Remove(6 , 3);
+            sb5.Remove(6, 3);
             Console.WriteLine(sb5.ToString());
 
             //example 6
             StringBuilder sb6 = new StringBuilder();
             sb6.Append("Kunsan University.");
 
-            StringBuilder TrimEnd(StringBuilder value, char a)
-            {
-                if (value[value.Length - 1] == a)
-                {
-                    return value.Remove(value.Length - 1, 1);
-                }
-                else
-                    return value;
-            }
             TrimEnd(sb6, '.');
             Console.WriteLine(sb6.ToString());
+        }
+
+        private static void TrimEnd(StringBuilder value, char a)
+        {
+            if (value.Length == 0) return;
+
+            if (value[value.Length - 1] == a)
+            {
+                value.Length -= 1;
+            }
         }
     }
 }
