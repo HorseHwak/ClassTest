@@ -216,5 +216,34 @@ namespace ClassTest
                                   area.Item1, area.Item2, Math.Round(Math.Sqrt(area.Item2), 2));
            // Console.WriteLine(Math.Max(1,2));
         }
+
+        public static void practice4()
+        {
+            string strID1 = "Gwak";
+            string strPW1 = "1234";
+
+            while (true)
+            {
+                Console.Write("Enter your ID : ");
+                string strID2 = Console.ReadLine();
+
+                if (strID1.ToLower() == strID2.ToLower())
+                {
+                    Console.Write("Enter your PW : ");
+                    string strPW2 = Console.ReadLine();
+
+                    if (strPW1 == strPW2)
+                    {
+                        Console.WriteLine("로그인 성공!");
+                        return;
+                    }
+                    else
+                        Console.WriteLine("비밀번호가 일치하지 않습니다.");
+                }
+                else
+                    Console.WriteLine("아이디가 일치하지 않습니다.");
+
+            }
+        }
     }
 }
