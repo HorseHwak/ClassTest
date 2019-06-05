@@ -245,5 +245,62 @@ namespace ClassTest
 
             }
         }
+
+        public static void practice5()
+        {
+            /*Console.WriteLine(31.50 * 9 / 5 + 32);
+
+            int a;
+
+            for (int i = 2; i < 10; i++)
+            {
+                Console.WriteLine("*** {0}단 ***", i);
+                for (int k = 1; k < 10; k++)
+                {
+                    a = i * k;
+                    Console.WriteLine("{0} x {1} = {2}", i,k, a);
+                }
+                Console.WriteLine("\n");
+            }
+            
+
+            Console.Write("Enter line number : ");
+            int Number = Convert.ToInt32(Console.ReadLine());
+
+            string text = "*";
+
+            for (int i = 0; i < Number; i++)
+            {                          
+                for (int j = 0; j < Number; j++)
+                {
+                    Console.WriteLine(text);
+                    text += "*";
+                }
+            }
+            Console.Write("점수입력 : ");
+            string input = Console.ReadLine();
+
+            int score = int.Parse(input);
+
+            if (score >= 90) { Console.WriteLine("학점 : A");}
+            else if (score >= 80) { Console.WriteLine("학점 : B"); }
+            else if (score >= 70) { Console.WriteLine("학점 : C"); }
+            else if (score >= 60) { Console.WriteLine("학점 : D"); }
+            else if (score < 60) { Console.WriteLine("학점 : F"); }
+            */
+
+            int[] value = { 90, 75, 85, 95, 70, 75, 85, 85, 95, 72 };
+
+            double sum = 0;            
+            for (int i = 0; i < value.Length; i++)
+            {
+                sum += value[i];
+            }
+            double avg = sum / value.Length;
+
+            Console.WriteLine("점수 : {0}", string.Join<int>(",", value));
+            Console.WriteLine("합계 : {0}", sum);
+            Console.WriteLine("평균 : {0}", avg);            
+        }
     }
 }
