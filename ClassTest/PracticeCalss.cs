@@ -198,7 +198,7 @@ namespace ClassTest
 
         public static void practice3()
         {
-           // Console.WriteLine(Math.Sqrt(10.2));
+            // Console.WriteLine(Math.Sqrt(10.2));
 
             Tuple<string, double>[] areas =
                      { Tuple.Create("Sitka, Alaska", 2870.3),
@@ -214,7 +214,7 @@ namespace ClassTest
             foreach (var area in areas)
                 Console.WriteLine("{0,-18} {1,14:N1} {2,14:N2} miles per side",
                                   area.Item1, area.Item2, Math.Round(Math.Sqrt(area.Item2), 2));
-           // Console.WriteLine(Math.Max(1,2));
+            // Console.WriteLine(Math.Max(1,2));
         }
 
         public static void practice4()
@@ -291,7 +291,7 @@ namespace ClassTest
 
             int[] value = { 90, 75, 85, 95, 70, 75, 85, 85, 95, 72 };
 
-            double sum = 0;            
+            double sum = 0;
             for (int i = 0; i < value.Length; i++)
             {
                 sum += value[i];
@@ -300,7 +300,143 @@ namespace ClassTest
 
             Console.WriteLine("점수 : {0}", string.Join<int>(",", value));
             Console.WriteLine("합계 : {0}", sum);
-            Console.WriteLine("평균 : {0}", avg);            
+            Console.WriteLine("평균 : {0}", avg);
+        }
+
+        public static void practice6()
+        {
+            /*int[,] student = new int[5,3] { { 90, 80, 90 }, { 85, 85, 85 }, { 95, 70, 75 }, { 80, 80, 90 }, { 90, 75, 80 } };
+                        
+            //Console.WriteLine(student.Length);
+            for (int i = 0; i < student.GetLength(0) ; i++)
+            {
+                double sum = 0;
+                for (int j = 0; j < student.GetLength(1) ; j++)
+                {
+                    sum += student[i,j];
+                }
+                double avg = sum / student.GetLength(1);
+                Console.WriteLine("ID={0} : 합계={1}, 평균={2:N2}", i, sum, avg);  
+            }
+            
+            string Hel = "Hello World";
+            string result = string.Empty;
+
+            for (int i = 0; i < Hel.Length; i++)
+            {
+                char t = Hel[i];
+                if (char.IsLower(t))
+                {
+                    t = char.ToUpper(t);
+                }
+                else if (char.IsUpper(t))
+                {
+                    t = char.ToLower(t);
+                }
+                result = result + t;
+            }
+            Console.WriteLine(result);
+            
+            
+            string Hel = "Hello World";
+            string result = string.Empty;
+
+            for (int i = 0; i < Hel.Length; i++)
+            {
+                char T = Hel[i];
+                if ((T >= 'A' && T <= 'Z') || (T >= 'a' && T <= 'z'))
+                {
+                    T = (char)(T + 3);
+                }
+                result = result + T;
+            }
+            Console.WriteLine(result);
+            
+
+            int[] array = new int[] { 80, 90, 95, 75, 70 };
+            int[] array1 = new int[] { 90, 85, 85, 85, 80 };
+
+            Console.WriteLine("A : {0}", string.Join<int>(",", array));
+            Console.WriteLine("Sum(A) = {0}", Sum(array));
+            Console.WriteLine("B : {0}", string.Join<int>(",", array1));
+            Console.WriteLine("Sum(B) = {0}", Sum(array1));
+            
+
+            Console.WriteLine("(3 + 5 - 2) x 2 / = {0}",dev(mul(minus(plus(3,5),2),2),3));
+            */
+
+        }
+        static int Sum(int[] data)
+        {
+            int sum = 0;
+
+            for (int i = 0; i < data.Length; i++)
+            {
+                sum += data[i];
+            }
+
+            return sum;
+        }
+
+        static int plus(int data, int data1)
+        {
+            return data + data1;
+        }
+        static int minus(int data, int data1)
+        {
+            return data - data1;
+        }
+        static int mul(int data, int data1)
+        {
+            return data * data1;
+        }
+        static int dev(int data, int data1)
+        {
+            return data / data1;
         }
     }
+    public class Trirangle
+    {
+        private double a;
+        private double b;
+        private double c;
+
+        public void Triangle(double aside, double bside, double cside)
+        {
+            a = aside;
+            b = bside;
+            c = cside;
+        }
+
+        public double A
+        {
+            get
+            {
+               return this.a;
+            }
+        }
+        public double B
+        {
+            get
+            {
+                return this.b;
+            }
+        }
+        public double C
+        {
+            get
+            {
+                return this.c;
+            }
+        }
+
+        public double Perimeter()
+        {
+            return a + b + c;
+        }
+        public void draw()
+        {
+            Console.WriteLine(); ;
+        }
+    } 
 }
