@@ -305,7 +305,8 @@ namespace ClassTest
 
         public static void practice6()
         {
-            /*int[,] student = new int[5,3] { { 90, 80, 90 }, { 85, 85, 85 }, { 95, 70, 75 }, { 80, 80, 90 }, { 90, 75, 80 } };
+            /*
+            int[,] student = new int[5,3] { { 90, 80, 90 }, { 85, 85, 85 }, { 95, 70, 75 }, { 80, 80, 90 }, { 90, 75, 80 } };
                         
             //Console.WriteLine(student.Length);
             for (int i = 0; i < student.GetLength(0) ; i++)
@@ -337,7 +338,7 @@ namespace ClassTest
             }
             Console.WriteLine(result);
             
-            
+            */
             string Hel = "Hello World";
             string result = string.Empty;
 
@@ -351,7 +352,7 @@ namespace ClassTest
                 result = result + T;
             }
             Console.WriteLine(result);
-            
+
 
             int[] array = new int[] { 80, 90, 95, 75, 70 };
             int[] array1 = new int[] { 90, 85, 85, 85, 80 };
@@ -360,12 +361,13 @@ namespace ClassTest
             Console.WriteLine("Sum(A) = {0}", Sum(array));
             Console.WriteLine("B : {0}", string.Join<int>(",", array1));
             Console.WriteLine("Sum(B) = {0}", Sum(array1));
-            
 
-            Console.WriteLine("(3 + 5 - 2) x 2 / = {0}",dev(mul(minus(plus(3,5),2),2),3));
-            */
+
+            Console.WriteLine("(3 + 5 - 2) x 2 / = {0}", dev(mul(minus(plus(3, 5), 2), 2), 3));
+
 
         }
+
         static int Sum(int[] data)
         {
             int sum = 0;
@@ -394,49 +396,72 @@ namespace ClassTest
         {
             return data / data1;
         }
+
+        public static void practice12()
+        {
+            // A : 3, 4, 5
+            // B : 3, 3, 3
+
+            //Triangle triA = new Triangle(3, 4, 5);
+
+            List<Triangle> triangles = new List<Triangle>();
+            triangles.Add(new Triangle(3, 4, 5));
+            triangles.Add(new Triangle(3, 3, 3));
+            triangles.Add(new Triangle(5, 4, 3));
+
+            int index = 1;
+            foreach (Triangle shape in triangles)
+            {
+                shape.Draw(index);
+                index++;
+            }
+
+            /*
+            index = 1;
+            for (int i = 0; i < triangles.Count; i++)
+            {
+                Triangle shape = triangles[i];
+                shape.Draw(index);
+                index++;
+            }
+            */
+
+            // Output
+            // 삼각형1: A-3, B-4, C-5
+            // 둘레길이: 12
+            // 삼각형2: A-3, B-3, C-3
+            // 둘레길이: 9
+        }
+
+        class Triangle
+        {
+            private int A, B, C;
+
+            public Triangle(int a, int b, int c)
+            {
+                A = a;
+                B = b;
+                C = c;
+            }
+            public void Draw(int index)
+            {
+                int sum = A + B + C;
+                Console.WriteLine("삼각형{0} : A={1}, B={2}, C={3}", index, A, B, C);
+                Console.WriteLine("둘레길이:{0}", sum);
+            }
+
+        }
+
+        public static void Quiz1()
+        {
+            int sum = 0;
+
+            for (int i = 1; i < 1000; i++)
+            {
+                if (i % 3 == 0 || i % 5 == 0)
+                { sum += i; }
+            }
+            Console.WriteLine("1~1000사이 3과5의 배수의 합은 : {0} 입니다", sum);
+        }
     }
-    public class Trirangle
-    {
-        private double a;
-        private double b;
-        private double c;
-
-        public void Triangle(double aside, double bside, double cside)
-        {
-            a = aside;
-            b = bside;
-            c = cside;
-        }
-
-        public double A
-        {
-            get
-            {
-               return this.a;
-            }
-        }
-        public double B
-        {
-            get
-            {
-                return this.b;
-            }
-        }
-        public double C
-        {
-            get
-            {
-                return this.c;
-            }
-        }
-
-        public double Perimeter()
-        {
-            return a + b + c;
-        }
-        public void draw()
-        {
-            Console.WriteLine(); ;
-        }
-    } 
-}
+ }
