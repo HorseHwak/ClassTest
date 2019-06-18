@@ -45,6 +45,18 @@ namespace ClassTest
             Console.WriteLine("피보나치 수열 : {0}\n", string.Join<int>(",", fibo));
             Console.WriteLine("짝수의 합 : {0}", sum);
         }
-        
+
+        public static void Quiz3()
+        {
+            long Decimal = 600851475143;
+            long Primefactor = Decimal;
+
+            for (long i = 2; i < Primefactor; i++)
+            {
+                if (Primefactor % i == 0)
+                     Primefactor =  Primefactor / i;
+            }
+            Console.WriteLine("{0}의 최대 소인수는 {1}입니다.", Decimal, Primefactor);
+        }
     }
 }
