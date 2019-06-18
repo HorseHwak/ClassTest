@@ -74,5 +74,38 @@ namespace ClassTest
             }
             Console.WriteLine("1부터 20까지의 숫자로 모두 나눠지는 최소의 수는 {0}입니다.", value);
         }
+
+        public static void Quiz5()
+        {
+            int[] PrimeNumber= new int[10005];
+            int j,k = 0;
+
+            for (int i = 0; i < 105000; i++)
+            {
+                for (j = 2; j < i; j++)
+                {
+                    if (i % j == 0)
+                        break;
+                }
+                if (j == i)
+                {
+                    PrimeNumber[k] = i;
+                    if (k < 10001)
+                    {
+                        k++;
+                    }
+                }                      
+            }
+
+            Console.WriteLine("소수 배열 : {0}\n", string.Join<int>(",", PrimeNumber));
+            Console.WriteLine("10001번째 소수 : {0}\n", PrimeNumber[10000]);
+
+
+
+
+
+
+
+        }
     }
 }
