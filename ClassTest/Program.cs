@@ -10,7 +10,7 @@ namespace ClassTest
     {
         static void Main(string[] args)
         {
-            QuizClass.Quiz5();
+            QuizClass.Quiz6();
            
             Console.ReadLine();
         }
