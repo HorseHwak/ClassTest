@@ -96,7 +96,6 @@ namespace ClassTest
                     }
                 }
             }
-
             Console.WriteLine("소수 배열 : {0}\n", string.Join<int>(",", PrimeNumber));
             Console.WriteLine("10001번째 소수 : {0}\n", PrimeNumber[10000]);
         }
@@ -150,6 +149,79 @@ namespace ClassTest
                 }
             }
             Console.WriteLine("수평, 수직, 또는 대각선 방향으로 연속된 숫자 네 개의 곱 중 최대값은 {0}입니다.", result);
+        }
+
+        public static void Quiz7()
+        {
+            int k = 19;
+            int l = 2;
+            string NonSpace = "";
+
+            string[] result = new string[1000];
+
+            string[] Spell = { "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven",
+                               "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen" };
+
+            string[] UnitSeat = { "", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
+
+            string[] TenSeat = { "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety" };
+
+            string[] HundredSeat = {"hundred" ,"hundred and " };
+
+            string ThousandSeat =  "thousand";
+
+
+            for (int i = 0; i < 19; i++)
+            {
+                result[i] = Spell[i];
+            }
+
+            for (int i = 0; i < 8; i++)
+            {
+                for (int j = 0; j < 10; j++)
+                {
+                   result[k] = TenSeat[i] + UnitSeat[j];
+                   k++;
+                }
+            }
+
+            result[k] = UnitSeat[1] + HundredSeat[0];
+            k++;
+
+            for (int i = 1; i < 10; i++)
+            {
+                for (int j = 0; j < 99; j++)
+                {
+                    result[k] = UnitSeat[i] + HundredSeat[1] + result[j];
+                    k++;
+                }
+                if (k < 900)
+                {
+                    result[k] = UnitSeat[l] + HundredSeat[0];
+                    k++; l++;
+                }
+            }
+
+            result[k] = UnitSeat[1] + ThousandSeat;
+
+            foreach (String item in result)
+            {
+                Console.Write("{0} ", item);
+            }
+
+            for (int i = 0; i < 1000; i++)
+            {
+                NonSpace += result[i];
+            }
+
+            Console.WriteLine(NonSpace);
+
+            NonSpace = NonSpace.Replace(" ", "");
+
+            Console.WriteLine(NonSpace);
+
+            Console.WriteLine("1부터 1,000까지 영어로 썼을 때 사용된 글자는 모두 {0}개입니다.", NonSpace.Length);
+
         }
     }
 }
