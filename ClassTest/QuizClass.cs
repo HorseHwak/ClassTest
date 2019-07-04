@@ -170,6 +170,7 @@ namespace ClassTest
 
             string ThousandSeat =  "thousand";
 
+            // 1~99 표현 
 
             for (int i = 0; i < 19; i++)
             {
@@ -185,9 +186,11 @@ namespace ClassTest
                 }
             }
 
+            // 100 표현
             result[k] = UnitSeat[1] + HundredSeat[0];
             k++;
 
+            // 101~999 표현
             for (int i = 1; i < 10; i++)
             {
                 for (int j = 0; j < 99; j++)
@@ -202,6 +205,7 @@ namespace ClassTest
                 }
             }
 
+            // 1000 표현
             result[k] = UnitSeat[1] + ThousandSeat;
 
             foreach (String item in result)
@@ -209,6 +213,7 @@ namespace ClassTest
                 Console.Write("{0} ", item);
             }
 
+            // 한 문자열에  문자열 arry값 전부대입
             for (int i = 0; i < 1000; i++)
             {
                 NonSpace += result[i];
@@ -216,6 +221,7 @@ namespace ClassTest
 
             Console.WriteLine(NonSpace);
 
+            // 공백값 제거
             NonSpace = NonSpace.Replace(" ", "");
 
             Console.WriteLine(NonSpace);
@@ -223,5 +229,85 @@ namespace ClassTest
             Console.WriteLine("1부터 1,000까지 영어로 썼을 때 사용된 글자는 모두 {0}개입니다.", NonSpace.Length);
 
         }
+
+        public static void Quiz8()
+        {
+            int Day = 0;
+            int TwoMonthday;
+            int Count = 0, ResultCount =0;
+            string Yeoil = "";
+            string result = "";
+                        
+            for (int i = 1901; i < 2001; i++) 
+            {
+                // 윤년 판별
+                if (i % 4 == 0 && i % 100 != 0 || i % 400 == 0)
+                {
+                    TwoMonthday = 29;
+                }
+                else
+                {
+                    TwoMonthday = 28;
+                }
+                for (int j = 1; j < 13; j++)
+                {
+                    if (j == 1 || j == 3 || j == 5 || j == 7 || j == 8 || j == 10 || j == 12)
+                    {
+                        Day = 31;
+                    }
+                    else if (j == 4 || j == 6 || j == 9 || j == 11)
+                    {
+                        Day = 30;
+                    }
+                    else if (j == 2)
+                    {
+                        Day = TwoMonthday;
+                    }
+                    for (int k = 1; k < Day+1; k++)
+                    {
+                        if (Count % 7 == 0)
+                        {
+                            Yeoil = "화요일";
+                        }
+                        else if (Count % 7 == 1)
+                        {
+                            Yeoil = "수요일";
+                        }
+                        else if (Count % 7 == 2)
+                        {
+                            Yeoil = "목요일";
+                        }
+                        else if (Count % 7 == 3)
+                        {
+                            Yeoil = "금요일";
+                        }
+                        else if (Count % 7 == 4)
+                        {
+                            Yeoil = "토요일";
+                        }
+                        else if (Count % 7 == 5)
+                        {
+                            Yeoil = "일요일";
+                        }
+                        else if (Count % 7 == 6)
+                        {
+                            Yeoil = "월요일";
+                        }
+
+                        Count++;
+
+                        if (k == 1 && Yeoil == "일요일")
+                        {
+                            result += i.ToString() + '.' + j.ToString() + '.' + k.ToString() + " " + Yeoil + " ";
+                            ResultCount++;
+                        }
+                    }
+
+                }
+                Console.WriteLine("{0} \n\n총 : {1} 번", result, ResultCount);
+            }
+            
+        }
+
     }
 }
